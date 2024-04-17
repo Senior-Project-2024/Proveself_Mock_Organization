@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isAuthProveSelf, setIsAuthProveSelf] = useState<boolean>(false)
+  const [currentDomain, setCurrentDomain] = useState<string>("");
   useEffect(()=>{
     axios.get("http://localhost:4000/auth/whoAmI", {
       withCredentials : true
@@ -16,6 +17,7 @@ export default function Home() {
       }else{
         setIsAuthProveSelf(false)
       }
+      setCurrentDomain(window.location.origin)
     })
 
   },[])
@@ -28,7 +30,7 @@ export default function Home() {
           Mint
         </button>
         :
-        <Link href={"http://localhost:4000/auth/thirdParty?redirectURL=" + window.location.origin}>
+        <Link href={"http://localhost:4000/auth/thirdParty?redirectURL=" + currentDomain}>
           <button className="border border-black p-4 rounded-md" >
             Login ProveSelf
           </button>
