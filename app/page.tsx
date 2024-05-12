@@ -11,7 +11,7 @@ export default function Home() {
   const toastIdRef = useRef<any>(null)
   const [isAuthProveSelf, setIsAuthProveSelf] = useState<boolean>(false)
   const [currentDomain, setCurrentDomain] = useState<string>("");
-  const [tokenAPI, setTokenAPI] = useState<string>("e7e06c1ea9f74c1a6be6aef7410b1e18a3dc661f3205d1f13a95fa6a5588fb0a693875ddac8c210448de215ee46129124e133d49")
+  const [tokenAPI, setTokenAPI] = useState<string>("")
   const [templateCode, setTemplateCode] = useState<string>("");
   const [publickey, setPublickey] = useState<string>("");
   const [evidenceURL, setEvidenceURL] = useState<string>("https://portfolio-pj-meaw.vercel.app/") 
