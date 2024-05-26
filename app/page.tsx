@@ -31,14 +31,14 @@ export default function Home() {
 
   async function mintBadge(){
     toastIdRef.current = toast({
-      title: 'Logining...',
+      title: 'Issuing Badge...',
       description: "Loading",
       status: 'loading',
       duration: 30000,
       isClosable: true,
     })
     try{
-      await axios.get(`http://localhost:4000/badges/mint?publickey=${publickey}&templateCode=${templateCode}&evidenceURL=${evidenceURL}`, {
+      await axios.get(`https://api.proveself.me/badges/mint?publickey=${publickey}&templateCode=${templateCode}&evidenceURL=${evidenceURL}`, {
         headers : {
           Authorization : `Bearer ${tokenAPI}`
         }
@@ -96,8 +96,8 @@ export default function Home() {
           <p className="text-[22px] font-medium">Issue Badge</p>
         </button>
         :
-        // <Link href={"http://localhost:4000/auth/thirdParty?redirectURL=" + currentDomain}>
-        <Link href={"http://localhost:4000/auth/thirdParty?redirectURL=" + currentDomain}>
+        // <Link href={"https://api.proveself.me/auth/thirdParty?redirectURL=" + currentDomain}>
+        <Link href={"https://api.proveself.me/auth/thirdParty?redirectURL=" + currentDomain}>
           <button className="border border-black p-4 rounded-md " >
             <p className="text-[22px] font-medium">Login ProveSelf</p>
           </button>
